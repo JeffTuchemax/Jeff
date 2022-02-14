@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const myBot = new Discord.Client({fetchAllMembers: true, partials: ['MESSAGE', 'REACTION']});
 const config = require("./config.json")
+const token = process.env.token
 const fs = require('fs')
 const fivereborn = require('fivereborn-query')
 const prefix = config.prefix
@@ -53,4 +54,4 @@ myBot.on('guildMemberAdd', member => {
     member.guild.channels.cache.get(config.idChannelWelcome).send(embedWelcome)
 });
 
-myBot.login(config.token)
+myBot.login(token);
